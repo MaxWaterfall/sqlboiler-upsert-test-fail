@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+
+  db:
+    image: postgres:14
+    ports:
+     - "5432:5432"
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_DATABASE: test
+      POSTGRES_PASSWORD: password
